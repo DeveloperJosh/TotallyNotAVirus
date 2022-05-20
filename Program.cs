@@ -2,8 +2,7 @@
 
 namespace FakeVirus
 {
-    class Program
-    {
+    class Virus {
         static void LoadBar(int progress, int total)
         {
             Console.CursorLeft = 0;
@@ -35,23 +34,24 @@ namespace FakeVirus
         static void FakeVirus()
         {
             Console.WriteLine("Virus is loading...");
+            Console.Beep(1000, 100);
             for (int i = 0; i < 101; i++)
             {
                 LoadBar(i, 100);
                 System.Threading.Thread.Sleep(10);
             }
+            Console.Beep(1000, 100);
             Console.Write("\n Virus installed successfully");
             System.Threading.Thread.Sleep(1000);
             Console.Write("\n You Now Have A Virus");
             System.Threading.Thread.Sleep(1000);
-            Console.Write("\nPress Any Key To Leave");
+            Console.Write("\nPress Any Key To Leave: ");
             Console.ReadKey();
-
         }
 
         static void Main(string[] args)
         {
-            FakeVirus();
+            Virus.FakeVirus();
         }
     }
 }
