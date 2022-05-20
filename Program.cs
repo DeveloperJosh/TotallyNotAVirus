@@ -3,6 +3,7 @@
 namespace FakeVirus
 {
     class Virus {
+
         static void LoadBar(int progress, int total)
         {
             Console.CursorLeft = 0;
@@ -34,13 +35,13 @@ namespace FakeVirus
         static void FakeVirus()
         {
             Console.WriteLine("Virus is loading...");
-            Console.Beep(1000, 100);
+            Console.Beep();
             for (int i = 0; i < 101; i++)
             {
-                LoadBar(i, 100);
+                LoadBar(i, 100);;
                 System.Threading.Thread.Sleep(10);
             }
-            Console.Beep(1000, 100);
+            Console.Write("\n");
             Console.Write("\n Virus installed successfully");
             System.Threading.Thread.Sleep(1000);
             Console.Write("\n You Now Have A Virus");
@@ -48,10 +49,23 @@ namespace FakeVirus
             Console.Write("\nPress Any Key To Leave: ");
             Console.ReadKey();
         }
+        static void UserArgee() {
+            Console.WriteLine("Do you want to install Program (y/n)");
+            string answer = Console.ReadLine();
+            if (answer == "y") {
+                Console.Clear();
+                Virus.FakeVirus();
+            } else {
+                Console.Clear();
+                Console.WriteLine("You have been terminated");
+                System.Threading.Thread.Sleep(1000);
+                Console.WriteLine("Good Bye!");
+            }
+        }
 
         static void Main(string[] args)
         {
-            Virus.FakeVirus();
+            Virus.UserArgee();
         }
     }
 }
